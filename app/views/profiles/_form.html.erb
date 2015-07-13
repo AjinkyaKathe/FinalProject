@@ -1,0 +1,55 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li class="alert alert-info"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <table class="table table-striped " style="width:500px;">
+   <tr>
+     <td><%= f.label :first_name %></td>
+     <td><%= f.text_field :first_name , class: 'form-control' %></td>
+   </tr>
+
+    <tr>
+     <td><%= f.label :last_name %></td>
+     <td><%= f.text_field :last_name , class: 'form-control' %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :gender ,'Gender'%></td>
+      <td>
+      <%= f.radio_button :gender,"Male" %>
+      <%= f.label :gender, "Male"%>  
+      <%= f.radio_button :gender,"female" %>
+      <%= f.label :gender, "Female"%>
+      </td>  
+    </tr>
+
+    <tr>
+     <td><%= f.label :country %></td>
+     <td><%= f.select :country, options_for_select([["India", "India"], ["Austrilia", "Austrilia"],["Germany","Germany"],["England","England"]], @profile.country ) %></td>
+    </tr>
+
+    <tr>
+     <td><%= f.label :state %></td>
+     <td><%= f.select :state , options_for_select([["Mahrashtra","Mahrashtra"],["Goa","Goa"],["Gujrat","Gujrat"],["Kerla","Kerla"]], @profile.state )%></td>
+    </tr>
+   
+    <tr>
+     <td><%= f.label :intrest %></td>
+     <td><%= f.text_field :intrest , class: 'form-control' %></td>
+    </tr>
+ 
+    <tr>
+    <td colspan="2">
+    <button class="btn btn-sm btn-primary" action='<%= f.submit %>'> Create Profile</button>
+    </td>
+    </tr>
+ </table> 
+<% end %>

@@ -1,0 +1,38 @@
+
+<div class="container">
+
+
+<%= form_for(:session, url: login_path) do |f| %>
+
+<center>
+<h1 class="alert alert-info">Login With Us </h1>  
+<table class="table table-bordered table-striped" style="width:320px">
+
+<tr>
+<th><%= f.label :email %></th>
+</tr>
+
+<tr>
+<td>
+<%= f.text_field :email ,class: 'form-control'  %></td>
+</tr>
+
+<tr>
+<th><%= f.label :password %></th>
+</tr>
+
+<tr>
+<td><%= f.password_field :password ,class: 'form-control' %></td>
+</tr>
+
+<tr>
+<td><%= f.submit "Log in", class: "btn btn-primary form-control"   %>
+
+</td>
+</tr>
+
+<% end %>
+</table>
+</center>
+
+</div>
